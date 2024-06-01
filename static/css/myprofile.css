@@ -1,0 +1,183 @@
+.container_profile {
+    width: 100%;
+    height: auto;
+    height: 60vh;
+}
+
+.profile_title {
+    color: #fff;
+    text-align: center;
+    margin-bottom: 4em;
+}
+
+.profile_title h1 {
+    font-size: 35px;
+
+}
+
+.profile_title p {
+    font-size: 15px;
+}
+
+.cont_profile {
+    position: relative;
+    top: 50%;
+    transform: translateY(-50%);
+    margin: 0 auto;
+    padding: 2em .5em;
+}
+
+.profile_flex {
+    display: flex;
+    align-items: start;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 3em;
+
+    @media (max-width:1000px) {
+        align-items: center;
+    }
+}
+
+.profile_box {
+    width: 350px;
+    color: #fff;
+    max-width: 100%;
+}
+
+.profile_box h1 {
+    font-size: 15px;
+    font-weight: 600;
+    margin-bottom: 10px;
+}
+
+.profile_box p {
+    font-size: 13px;
+    font-weight: 400;
+    line-height: 1.7em;
+}
+
+.profile_box_img {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    overflow: hidden;
+}
+
+.profile_box_img img {
+    width: 100%;
+
+}
+
+.profile_box_details h1 {
+    font-size: 15px;
+    color: #fff;
+    font-weight: 600;
+    margin-bottom: 10px;
+}
+
+.profile_box_details h2 {
+    font-size: 15px;
+    color: #fff;
+    padding: 5px 0;
+}
+
+.profile_box_details label {
+    color: #fff;
+    font-size: 15px;
+}
+
+/*Actualización de datos*/
+.container_update {
+    width: 100%;
+    height: auto;
+    padding: 3em .5em;
+
+    @media (max-width:1000px) {
+        padding-top: 5em;
+    }
+}
+
+.container_update h1 {
+    font-size: 25px;
+    color: #fff;
+    text-align: center;
+}
+
+.cont_update {
+    margin: 0 auto;
+    width: 90%;
+}
+
+.update_box {
+    margin-bottom: 2em;
+}
+
+.update_box form,
+.update_password form {
+    width: 250px;
+
+    @media (max-width:1000px) {
+        width: 100%;
+    }
+}
+
+.update_box form input,
+.update_password input {
+    width: 100%;
+    margin: 5px auto;
+    padding: 8px;
+    outline: none;
+}
+
+.update_box form textarea {
+    padding: 8px;
+    min-width: 250px;
+    min-height: 45px;
+    max-height: 70px;
+    max-width: 250px;
+    margin: 5px auto;
+    outline: none;
+
+    @media (max-width:1000px) {
+        width: 100%;
+        min-width: 100%;
+        max-width: 100%;
+    }
+}
+
+.update_flex {
+    padding: 3em 0;
+    display: flex;
+    align-items: start;
+    gap: 4em;
+    justify-content: center;
+}
+
+.update_flex h2 {
+    padding: 15px 0;
+    color: #fff;
+    font-size: 15px;
+}
+
+.update_flex label {
+    color: #fff;
+    font-size: 13px;
+    font-weight: 400;
+}
+
+.update_box form input[type=number]::-webkit-inner-spin-button {
+    display: none;
+}
+
+.update_flex form #btn_profile,
+.update_flex form #btn_password {
+    background-color: #082d54;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+    font-weight: 600;
+    height: 40px;
+    font-size: 13px;
+    margin-top: 15px;
+}

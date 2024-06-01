@@ -1,0 +1,60 @@
+{%extends 'base.html'%}
+
+{%block title%}Red Compu - Registro{%endblock%}
+
+{%block content%}
+
+<body>
+    <div class="container_login">
+        <div class="cont_login cont_register">
+            <div class="login">
+                <h1>Registrate</h1>
+                <form action="{{ url_for('auth.registro') }}" method="post">
+                    <div class="username">
+                        <label>Nombre de Usuario</label>
+                        <div class="username_input">
+                            <i class="fa-regular fa-user"></i>
+                            <input type="text" name="username" placeholder="Escriba su usario" required>
+                        </div>
+                    </div>
+                    <div class="email">
+                        <label>Correo electronico</label>
+                        <div class="email_input">
+                            <i class="fa-regular fa-envelope"></i>
+                            <input type="email" name="email" placeholder="Escriba su correo" required>
+                        </div>
+                    </div>
+                    <div class="nombre">
+                        <label>Nombre completo</label>
+                        <div class="nombre_input">
+                            <i class="fa-regular fa-address-book"></i>
+                            <input type="text" name="nombre" placeholder="Escriba su usario" required>
+                        </div>
+                    </div>
+                    <div class="password">
+                        <label>Contraseña</label>
+                        <div class="password_input">
+                            <i class="fa-solid fa-unlock-keyhole"></i>
+                            <input type="password" name="password" placeholder="Escriba su contraseña" required>
+                        </div>
+                    </div>
+                    <div class="password">
+                        <label>Repetir Contraseña</label>
+                        <div class="password_input">
+                            <i class="fa-solid fa-unlock-keyhole"></i>
+                            <input type="password" name="repetPassword" placeholder="Escriba su contraseña" required>
+                        </div>
+                    </div>
+                    <input type="submit" class="btn_form" value="Registrarse">
+                </form>
+                <div class="register_link">
+                    <h3>¿Ya tienes una cuenta?</h3>
+                    <a href="login" id="register_link">Iniciar Sesión</a>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</body>
+
+{%endblock%}

@@ -1,0 +1,66 @@
+{%extends 'base.html'%}
+
+{%block title%}Red Compu - Actualización de Datos{%endblock%}
+
+{%block content%}
+<link rel="stylesheet" href="../static/css/myprofile.css">
+
+<style>
+    .nav_container .nav_cont .sub_menu {
+        background-color: #02182f;
+    }
+</style>
+
+<body>
+    <section>
+        <div class="container_update">
+            <div class="cont_update">
+                <h1>Actualización de Datos</h1>
+                <div class="update_flex">
+
+                    <div class="update_box">
+                        <h2>Agregar Datos o Actualizar datos:</h2>
+                        <form action="{{ url_for('actualizar_datos') }}" method="post">
+                            <label for="correo">Correo:</label>
+                            <input type="email" name="correo" placeholder="Correo electronico">
+
+                            <label for="edad">Edad:</label>
+                            <input type="number" name="edad" placeholder="Edad">
+
+                            <label for="edad">Acerca de mi:</label>
+                            <textarea name="acercademi" placeholder="Acerca de mi"></textarea>
+
+                            <label for="edad">Perfil:</label>
+                            <textarea name="perfil" placeholder="Mi Perfil"></textarea>
+
+
+                            <label for="ubicacion">Ubicación:</label>
+                            <textarea name="ubicacion" placeholder="Tu Ubicación"></textarea>
+
+                            <input type="submit" id="btn_profile" value="Guardar">
+                        </form>
+                    </div>
+
+                    <div class="update_password">
+                        <h2>Actualizacion de Contraseña:</h2>
+                        <form action="{{ url_for('actualizar_clave') }}" method="post">
+                            <label for="contraseña">Contraseña Actual</label>
+                            <input type="password" name="password" placeholder="Contraseña actual">
+
+                            <label for="nueva contraseña">Nueva Contraseña:</label>
+                            <input type="password" name="newPassword" placeholder="Nueva contraseña">
+
+                            <label for="repetir contraseña">Repetir Contraseña:</label>
+                            <input type="password" name="repPassword" placeholder="Repetir contraseña">
+
+                            <input type="submit" id="btn_password" value="Guardar">
+
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</body>
+
+{% endblock %}

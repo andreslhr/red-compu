@@ -1,0 +1,86 @@
+/*reset password*/
+.reset-password {
+    padding: 25px;
+    margin: 25px 0;
+
+    @media (max-width:1000px) {
+        margin-top: 100px;
+    }
+}
+
+.reset-password h2 {
+    text-align: center;
+    color: #fff;
+    font-weight: 600;
+    font-size: 35px;
+}
+
+.reset-password form {
+    display: flex;
+    flex-direction: column;
+    width: 350px;
+    margin: 3em auto;
+
+    @media (max-width:1000px) {
+        width: 80%;
+    }
+}
+
+.reset-password form ul {
+    flex-direction: column;
+    display: flex;
+    margin: 15px 0;
+}
+
+.reset-password form ul label {
+    color: #fff;
+    font-size: 15px;
+}
+
+.reset-password form ul input {
+    padding: 15px 5px;
+    color: #fff;
+    background: transparent;
+    border: none;
+    border-bottom: 1px solid #fff;
+
+    outline: none;
+    width: 100%;
+}
+
+.reset-password form #btn_reset {
+    background-color: #011e2f;
+    color: #fff;
+    text-align: center;
+    width: 200px;
+    padding: 10px 0;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    margin: 25px auto;
+    transition: all ease-in-out 200ms;
+    font-weight: 600;
+}
+
+.reset-password form #btn_reset:hover {
+    background-color: #04334f;
+}
+
+#confirm_password::-webkit-password-toggle-button {
+    display: none !important;
+}
+
+.wrapper-input {
+    position: relative;
+    width: 350px;
+    display: flex;
+}
+
+.wrapper-input #togglePassword ,
+.wrapper-input #toggleConfirmPassword{
+    position: absolute;
+    margin: 15px;
+    right: 0px;
+    color: #fff;
+    font-size: 15px;
+}

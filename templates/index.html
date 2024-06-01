@@ -1,0 +1,193 @@
+{%extends 'base.html'%}
+
+{%block title%}Red Compu - Inicio{%endblock%}
+
+{%block content%}
+
+<body>
+    <section>
+        <div class="index_slider">
+            <div class="slider_button">
+                <i class="fa-solid fa-circle-arrow-left" onclick="prevSlide()"></i>
+                <i class="fa-solid fa-circle-arrow-right" onclick="nextSlide()"></i>
+            </div>
+            <div class="cont_index_slider">
+                <div class="slider_cont">
+                    <div class="slider_img">
+                        <img src="../static/img/IA.png" alt="ia_img">
+                    </div>
+                    <div class=" slider_text">
+                        <h1>Inteligencia Artificial</h1>
+                        <p> Un Sistema Operativo (SO) es un programa (software) que cuando arrancamos o iniciamos el
+                            ordenador se encarga de gestionar todos los recursos del sistema informático permitiendo
+                            así
+                            la comunicación entre el usuario y el ordenador.</p>
+                        <a href="#">Conocer más</a>
+                    </div>
+                </div>
+                <div class="slider_cont">
+                    <div class="slider_img">
+                        <img src="../static/img/web 3_0.png" alt="web_img">
+                    </div>
+                    <div class="slider_text">
+                        <h1>WEB 3.0</h1>
+                        <p> La Web 3.0 es una evolución de la World Wide Web que ha sido discutida y conceptualizada en
+                            la última década.</p>
+                        <a href="#">Conocer más</a>
+                    </div>
+                </div>
+                <div class="slider_cont">
+                    <div class="slider_img">
+                        <img src="../static/img/OS.png" alt="os_img">
+                    </div>
+                    <div class="slider_text">
+                        <h1>Sistemas Operativos</h1>
+                        <p> Un Sistema Operativo (SO) es un programa (software) que cuando arrancamos o iniciamos el
+                            ordenador se encarga de gestionar todos los recursos del sistema informático permitiendo
+                            así
+                            la comunicación entre el usuario y el ordenador.</p>
+                        <a href="#">Conocer más</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="container_servicios_index">
+            <h1 id="titulo_cont">Servicios que ofrecemos:</h1>
+            <div class="cont_servicios_index">
+                <div class="servicios_title">
+                    <img src="../static/img/servicios/diseño-grafico.png" alt="">
+                    <h1>Diseño Grafico</h1>
+                    <p>El diseño transformo lo común en algo extraordinario.</p>
+                </div>
+                <div class="servicios_title">
+                    <img src="../static/img/servicios/desarrollo-web.png" alt="">
+                    <h1>Desarrollo Web</h1>
+                    <p>Diseña tu sitio web teniendo en cuenta la accesibilidad.</p>
+                </div>
+                <div class="servicios_title">
+                    <img src="../static/img/servicios/servicio-tecnico.png" alt="">
+                    <h1>Servicio Tecnico</h1>
+                    <p>Mantén todos los sistemas y software actualizados.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="container_destacados">
+            <div class="destacados_button">
+                <i class="fa-solid fa-circle-arrow-left" onclick="prevSlideTwo()"></i>
+                <i class="fa-solid fa-circle-arrow-right" onclick="nextSlideTwo()"></i>
+            </div>
+            <h1 id="titulo_cont">Temas Destacados:</h1>
+            <div class="cont_destacados">
+                <div class="destacados_title">
+                    <h1>Chat GPT</h1>
+                    <p>Chat GPT es un modelo de lenguaje desarrollado por OpenAI. OpenAI es una organización de
+                        investigación en inteligencia artificial con sede en San Francisco, California. fundada en
+                        2015 por empresarios como Elon Musk y Sam Altman.</p>
+                    <a href="chat_gpt" target="_blank">Conocer más</a>
+                </div>
+                <div class="destacados_title">
+                    <h1>Kits AI</h1>
+                    <p>Potencia tu música con Kits AI. Genere sus propias voces de IA con un solo clic. Kits AI es
+                        una generación de voz de IA y una plataforma de voz de IA gratuita para que los músicos
+                        utilicen y creen voces de IA.</p>
+                    <a href="kits_ai" target="_blank">Conocer más</a>
+                </div>
+                <div class="destacados_title">
+                    <h1>Computación cuántica</h1>
+                    <p>La computación cuántica es un campo emergente de la informática que se basa en los principios de
+                        la mecánica cuántica para procesar información.</p>
+                    <a href="computacion_cuantica" target="_blank">Conocer más</a>
+                </div>
+                <div class="destacados_title">
+                    <h1>Platform Engineering</h1>
+                    <p> Es un enfoque en la creación y mantenimiento de plataformas tecnológicas
+                        que permiten a los desarrolladores y equipos de operaciones trabajar de manera más eficiente y
+                        efectiva. </p>
+                    <a href="Platform_Engineering" target="_blank">Conocer más</a>
+                </div>
+            </div>
+        </div>
+
+    </section>
+
+    <!--JAVASCRIPT-->
+    <script>
+        // Variables globales
+        var currentSlide = 0;
+        var totalSlides = document.querySelectorAll('.slider_cont').length;
+
+        // Función para mostrar el slide anterior
+        function prevSlide() {
+            currentSlide = (currentSlide - 1 + totalSlides) % totalSlides;
+            updateSlider();
+        }
+
+        // Función para mostrar el siguiente slide
+        function nextSlide() {
+            currentSlide = (currentSlide + 1) % totalSlides;
+            updateSlider();
+        }
+
+        // Función para actualizar la posición del slider
+        function updateSlider() {
+            var newTranslateValue = -currentSlide * 100 + '%';
+            document.querySelector('.cont_index_slider').style.transform = 'translateX(' + newTranslateValue + ')';
+        }
+
+    </script>
+
+    <script>
+        // Variables globales
+        var currentSlideTwo = 0;
+        var totalSlidesTwo = document.querySelectorAll('.destacados_title').length;
+        var autoSlideInterval;
+
+        // Función para mostrar el slide anterior
+        function prevSlideTwo() {
+            currentSlideTwo = (currentSlideTwo - 1 + totalSlidesTwo) % totalSlidesTwo;
+            updateSliderTwo();
+        }
+
+        // Función para mostrar el siguiente slide
+        function nextSlideTwo() {
+            currentSlideTwo = (currentSlideTwo + 1) % totalSlidesTwo;
+            updateSliderTwo();
+        }
+
+        // Función para actualizar la posición del slider
+        function updateSliderTwo() {
+            var newTranslateValue = -currentSlideTwo * 100 + '%';
+            document.querySelector('.cont_destacados').style.transform = 'translateX(' + newTranslateValue + ')';
+        }
+
+        // Función para iniciar el cambio automático de slides
+        function startAutoSlide() {
+            // Verificar el ancho de la ventana
+            if (window.innerWidth > 900) { // Umbral de ancho para responsive
+                autoSlideInterval = setInterval(nextSlideTwo, 5000); // Cambia de slide cada 5 segundos
+            }
+        }
+
+        // Función para detener el cambio automático de slides
+        function stopAutoSlide() {
+            if (autoSlideInterval) {
+                clearInterval(autoSlideInterval);
+            }
+        }
+
+        // Función para manejar el cambio de tamaño de la ventana
+        function handleResize() {
+            stopAutoSlide();
+            startAutoSlide();
+        }
+
+        // Iniciar el cambio automático cuando el documento esté listo
+        document.addEventListener('DOMContentLoaded', function () {
+            startAutoSlide();
+            window.addEventListener('resize', handleResize); // Escuchar cambios de tamaño de ventana
+        });
+    </script>
+</body>
+
+{%endblock%}

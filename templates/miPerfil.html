@@ -1,0 +1,40 @@
+{%extends 'base.html'%}
+
+{%block title%}Mi perfil{%endblock%}
+
+{%block content%}
+<link rel="stylesheet" href="../static/css/myprofile.css">
+
+<body>
+    <div class="container_profile">
+
+        <div class="cont_profile">
+            <div class="profile_title">
+                <h1>Perfil</h1>
+                <p>{{ current_user.perfil_details or 'No disponible'}}</p>
+            </div>
+            <div class="profile_flex">
+                <div class="profile_box">
+                    <h1>Acerca de mi</h1>
+                    <p>{{ current_user.acercademi or 'No disponible'}}</p>
+                </div>
+                <div class="profile_box_details">
+                    <h1>Detalles</h1>
+                    <h2>Nombre:</h2>
+                    <label for="nombre">{{ current_user.nombre or 'No disponible' }}</label>
+                    <h2>Edad:</h2>
+                    <label for="edad">{{ current_user.edad or 'No disponible' }}</label>
+                    <h2>Correo:</h2>
+                    <label for="ubicacion">{{ current_user.correo or 'No disponible' }}</label>
+                    <h2>Ubicación:</h2>
+                    <label for="ubicacion">{{ current_user.ubicacion or 'No disponible' }}</label>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+
+</body>
+
+{%endblock%}

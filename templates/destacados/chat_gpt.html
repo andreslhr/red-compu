@@ -1,0 +1,102 @@
+{%extends 'base.html'%}
+
+{%block title%}Red Compu - Chat Gpt{%endblock%}
+
+{%block content%}
+
+<body>
+    <style>
+        .nav_container .nav_cont .sub_menu {
+            background-color: rgb(1, 17, 31);
+        }
+    </style>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/destacados.css') }}">
+    <div class="container_chatgpt">
+        <h1>Chat GPT</h1>
+        <div class="cont_chatgpt">
+            <div class="chatgpt_text">
+                <p>En la era digital actual, la inteligencia artificial (IA) ha emergido como una de las tecnologías más
+                    transformadoras. Una de las aplicaciones más notables de la IA es ChatGPT, un modelo de lenguaje
+                    desarrollado por OpenAI que ha cambiado la manera en que interactuamos con las máquinas y accedemos
+                    a la información.</p>
+
+                <h1>¿Qué es ChatGPT?</h1>
+
+                <p>ChatGPT es un modelo de lenguaje basado en la arquitectura GPT-4 (Generative Pre-trained Transformer
+                    4) de OpenAI. Este modelo ha sido entrenado utilizando vastas cantidades de datos de texto de
+                    internet, lo que le permite generar respuestas coherentes y contextualmente relevantes a las
+                    preguntas y solicitudes de los usuarios. Su capacidad para entender y producir texto en lenguaje
+                    natural lo hace extremadamente útil en una amplia variedad de aplicaciones.</p>
+
+                <h1>Aplicaciones de ChatGPT</h1>
+
+                <p><span>• Atención al Cliente:</span> Muchas empresas han integrado ChatGPT en sus sistemas de atención
+                    al cliente
+                    para proporcionar soporte 24/7. El modelo puede manejar consultas comunes, resolver problemas
+                    básicos y redirigir casos más complejos a agentes humanos, mejorando así la eficiencia y la
+                    satisfacción del cliente.</p>
+                <p><span>• Educación:</span> ChatGPT se utiliza como asistente educativo, proporcionando explicaciones
+                    detalladas sobre diversos temas, ayudando con tareas y ofreciendo apoyo personalizado a los
+                    estudiantes.</p>
+                <p><span>• Escritura y Creación de Contenido:</span> Desde redactar artículos y blogs hasta generar
+                    ideas
+                    creativas
+                    para contenido, ChatGPT ayuda a escritores y creadores a superar el bloqueo creativo y a producir
+                    contenido de alta calidad de manera más eficiente.</p>
+                <p><span>• Asistencia Personal:</span> Integrado en aplicaciones de productividad, ChatGPT puede
+                    gestionar
+                    calendarios,
+                    programar recordatorios y asistir en la organización de tareas diarias, facilitando la vida de los
+                    usuarios.</p>
+
+                <h1>Ventajas de Usar ChatGPT</h1>
+
+                <p><span>• Accesibilidad:</span>Disponible en múltiples plataformas y fácil de integrar en aplicaciones
+                    existentes.</p>
+
+                <p><span>• Escalabilidad:</span> Capaz de manejar grandes volúmenes de consultas simultáneamente sin
+                    comprometer la
+                    calidad de las respuestas.</p>
+
+                <p><span>• Personalización:</span> Se puede ajustar para adaptarse a las necesidades específicas de
+                    diferentes sectores
+                    y usuarios individuales.</p>
+
+                <p><span>• Aprendizaje Continuo:</span> A medida que interactúa con los usuarios, ChatGPT mejora
+                    continuamente su
+                    capacidad para comprender y responder de manera precisa.</p>
+
+                <h1>El Futuro de ChatGPT</h1>
+
+                <p>El futuro de ChatGPT y tecnologías similares es prometedor. Con avances continuos en IA y
+                    procesamiento del lenguaje natural, podemos esperar que estas herramientas se vuelvan aún más
+                    sofisticadas, ofreciendo interacciones más naturales y útiles. Además, la integración de tecnologías
+                    como el aprendizaje automático y la IA conversacional en nuestra vida cotidiana promete revolucionar
+                    sectores enteros, desde la salud hasta la educación y más allá.</p>
+
+                <br>
+
+                <p>ChatGPT representa un paso significativo hacia una comunicación más fluida y efectiva entre humanos y
+                    máquinas. Su capacidad para entender y generar lenguaje humano lo hace una herramienta valiosa en
+                    muchos campos, mejorando la eficiencia, la accesibilidad y la personalización de los servicios. A
+                    medida que seguimos explorando sus capacidades y enfrentando sus desafíos, ChatGPT se posiciona como
+                    una pieza clave en el futuro de la tecnología y la inteligencia artificial.
+                </p>            
+            </div>
+            <div class="chatgpt_img">
+                <img src="../../static/img/font_chatgpt.jpg" alt="">
+                <div class="chatgpt_img_text">
+                    <h2>Chat Gpt</h2>
+                    <div class="openai">
+                        <img src="../../static/img/openai.png" alt="">
+                        <h3>OpenAi</h3>
+                    </div>
+                    <a href="https://chat.openai.com/" target="_blank">Probar Ahora</a>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</body>
+
+{%endblock%}

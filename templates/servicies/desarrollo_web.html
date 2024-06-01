@@ -1,0 +1,94 @@
+{%extends 'base.html'%}
+
+{%block title%}Red Compu - Desarrollo Web{%endblock%}
+
+{%block content%}
+
+<body>
+
+    <style>
+        .nav_container .nav_cont .sub_menu {
+            background-color: #02182f;
+        }
+    </style>
+
+    <section>
+        <div class="container_services_first">
+            <div class="cont_services_first">
+                <div class="services_first_title">
+                    <h2>Desarrollo Web</h2>
+                    <h1>Llena el siguiente formulario y pronto estaremos en contacto con usted.</h1>
+                </div>
+                <form action="{{ url_for('enviar_correo_web') }}" method="post">
+                    <div class="form_input">
+                        <label>Numero de cedula:</label>
+                        <input type="number" name="cedula" placeholder="Escribe tu cedula" required>
+                    </div>
+                    <div class="form_input">
+                        <label>Nombre completo:</label>
+                        <input type="text" name="nombre" placeholder="Escribe tu nombre completo" required>
+                    </div>
+                    <div class="form_input">
+                        <label>Numero de telefono:</label>
+                        <input type="number" name="telefono" placeholder="Escribe tu telefono" required>
+                    </div>
+                    <div class="form_input">
+                        <label>Pais:</label>
+                        <select name="pais" id="pais" name="pais">
+                            <option value="0">Seleccione el pais</option>
+                        </select>
+                    </div>
+                    <div class="form_input">
+                        <label>Correo Electronico:</label>
+                        <input type="email" name="correo" placeholder="Escribe tu correo"
+                            value="{{ current_user.correo or 'No disponible' }}" required readonly>
+                    </div>
+                    <div class="form_input">
+                        <label>Tu Direccion:</label>
+                        <input type="text" name="direccion" placeholder="Escribe tu dirección" required>
+                    </div>
+                    <div class="form_input">
+                        <label>Mensaje:</label>
+                        <textarea name="mensaje" id="mensaje" placeholder="Escribe un mensaje (Opcional)"></textarea>
+                    </div>
+                    <input type="submit" id="services_btn" value="Enviar">
+                </form>
+            </div>
+            <div class="cont_services_second">
+                <div class="services_second_title">
+                    <h1>Tambien puedes contactarnos a nuestro <br> Whatsapp en el siguiente enlace.</h1>
+                </div>
+                <div class="services_second_ws">
+                    <img src="../../static/img/whatsapp.png" alt="whatsapp_img">
+                    <a href="https://wa.link/ofklv0" target="_blank"><span>Whatsapp</span><br> Ir al chat</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        const paises = [
+            "Argentina", "Bolivia", "Brasil", "Chile", "Colombia",
+            "Costa Rica", "Cuba", "Ecuador", "El Salvador", "España",
+            "Guatemala", "Honduras", "México", "Nicaragua", "Panamá",
+            "Paraguay", "Perú", "Puerto Rico", "República Dominicana",
+            "Uruguay", "Venezuela"
+        ];
+
+        function poblarSelectConPaises() {
+            const selectPais = document.getElementById('pais');
+
+            paises.forEach(pais => {
+                const option = document.createElement('option');
+                option.value = pais;
+                option.textContent = pais;
+                selectPais.appendChild(option);
+            });
+        }
+
+        // Llamar a la función para poblar el <select> al cargar la página
+        window.onload = poblarSelectConPaises;
+    </script>
+</body>
+
+{%endblock%}

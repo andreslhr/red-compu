@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!--Link-->
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/estilos.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/login and register.css') }}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <link rel="shorcut icon" href="../static/img/logorc.png">
+
+    <link rel="stylesheet" href="../static/css/swiper-bundle.min.css" />
+
+
+    <!--Script-->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js" charset="UTF-8"></script>
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+
+    <title>{%block title%}{%endblock%}</title>
+</head>
+
+<body id="body">
+
+    <!--MENSAJES FLASH-->
+    {% with messages = get_flashed_messages(with_categories=true) %}
+    {% if messages %}
+    {% for category, message in messages %}
+    <div class="flash {{ category }}" id="flash-message">{{ message }}</div>
+    {% endfor %}
+    {% endif %}
+    {% endwith %}
+
+    <!--MENU VERTICAL-->
+    <div class="side-bar">
+        <div class="close-btn">
+            <i class="fas fa-times"></i>
+        </div>
+        <div class="menu">
+            <div class="item"><a href="/">Inicio</a></div>
+            <div class="item"><a href="#" class="sub-btn">Descargas<i class="fa-solid fa-angle-right dropdown"></i></a>
+                <div class="sub-menu">
+                    <a href="descargas_sistemas_operativos">Sistemas Operativos</a>
+                    <a href="descargas_programas">Programas</a>
+                </div>
+            </div>
+            <div class="item"><a href="#" class="sub-btn">Servicios Online<i
+                        class="fa-solid fa-angle-right dropdown"></i></a>
+                <div class="sub-menu">
+                    <a href="desarrollo_web">Desarrollo Web</a>
+                    <a href="diseño_grafico">Diseño Grafico</a>
+                </div>
+            </div>
+
+            <div class="item"><a href="nosotros">Nosotros</a></div>
+            <div class="nav_login_dropdown">
+                {% if current_user.is_authenticated %}
+                <li class="logout-form logout-form-reponsive">
+                    <a class="btn_perfil" id="btnPerfil" href="miPerfil">Mi Perfil<i class="fa-regular fa-user"></i></a>
+                    <a class="btn_perfil" id="btnPerfil" href="actualizar_datos">Actualizar datos<i class="fa-solid fa-pen-to-square"></i></a>
+                    <form id="logout-form-btn-drop" action="{{ url_for('logout') }}" method="GET">
+                        <input type="submit" class="btn_logout" value="Cerrar Sesión">
+                    </form>
+                </li>
+                {% else %}
+                <li class="btn_login"><a href="{{ url_for('auth.login') }}">Iniciar Sesión<i
+                            class="fa-solid fa-user"></i></a></li>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+
+    <!--HEADER-->
+
+    <header>
+        <div class="nav_container">
+            <div class="nav_cont">
+                <nav>
+                    <div class="nav_logo">
+                        <a href="/">Red Compu</a>
+                    </div>
+                    <div class="nav">
+                        <li><a href="/">Inicio</a></li>
+                        <li><a href="#">Descargas<i class="fa-solid fa-chevron-down"></i></a>
+                            <ul class="sub_menu sub_menu_two">
+                                <a href="descargas_sistemas_operativos">Sistemas Operativos</a>
+                                <a href="descargas_programas">Programas</a>
+                            </ul>
+                        </li>
+                        <li><a href="#">Servicios Online<i class="fa-solid fa-chevron-down"></i></a>
+                            <ul class="sub_menu">
+                                <a href="desarrollo_web">Desarrollo Web</a>
+                                <a href="diseño_grafico">Diseño Grafico</a>
+                            </ul>
+                        </li>
+                        <li><a href="nosotros">Nosotros</a></li>
+                    </div>
+                </nav>
+                <div class="nav_login">
+                    {% if current_user.is_authenticated %}
+                    <li class="logout-form"><a href="#">{{ current_user.nombre }}</a>
+                        <ul class="sub_menu sub_menu_login">
+                            <a class="btn_perfil" id="btnPerfil" href="miPerfil">Mi Perfil<i
+                                    class="fa-regular fa-user"></i></a>
+                            <a class="btn_perfil" id="btnPerfil" href="actualizar_datos">Actualizar datos<i class="fa-solid fa-pen-to-square"></i></a>
+                            <form id="logout-form-btn-drop" action="{{ url_for('logout') }}" method="GET">
+                                <input type="submit" class="btn_logout" value="Cerrar Sesión">
+                            </form>
+                        </ul>
+                    </li>
+                    {% else %}
+                    <li><a href="{{ url_for('auth.login') }}">Iniciar Sesión<i class="fa-solid fa-user"></i></a></li>
+
+                    {% endif %}
+                </div>
+                <div class="nav_menu">
+                    <i class="fa-solid fa-bars-staggered"></i>
+                </div>
+            </div>
+        </div>
+    </header>
+    {%block content%} {%endblock%}
+
+    {%block footer%}
+    <div class="container_footer">
+        <div class="cont_footer">
+            <div class="footer_title_one">
+                <div class="footer_submit">
+                    <h1>¿Aún no estas registrado?</h1>
+                    <a href="registro">Comienza Ahora</a>
+                </div>
+                <div class="footer_img">
+                    <img src="../static/img/logorc.png" alt="">
+                </div>
+            </div>
+            <div class="footer_title_two">
+                <div class="footer_inf_one">
+                    <h1>Red Compu</h1>
+                    <p>Somos una pequeña empresa emprendedora especializada en ofrecer soluciones integrales en el
+                        ámbito digital. </p>
+                </div>
+                <div class="footer_inf_two">
+                    <a href="/">Inicio</a>
+                    <a href="nosotros">Nosotros</a>
+                    <a href="descargas_sistemas_operativos">Sistemas Operativos</a>
+                    <a href="descargas_programas">Programas</a>
+                </div>
+                <div class="footer_inf_three">
+                    <a href="desarrollo_web">Desarrollo Web</a>
+                    <a href="diseño_grafico">Diseño Grafico</a>
+                </div>
+                <div class="footer_inf_four">
+                    <a href="#">redcompu872@gmail.com</a>
+                    <h4>Zaraza - Guarico</h1>
+                        <div class="footer_enlaces">
+                            <a href="https://api.whatsapp.com/send?phone=584129292382" target="_blank"><i
+                                    class="fa-brands fa-whatsapp"></i></a>
+                            <a href="https://www.facebook.com/Andres.LHR" target="_blank"><i
+                                    class="fa-brands fa-facebook"></i></a>
+                            <a href="https://www.instagram.com/redcompu320/?hl=es-la" target="_blank"><i
+                                    class="fa-brands fa-instagram"></i></a>
+                        </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    {%endblock%}
+
+
+    <!--JAVASCRIPT-->
+    <script>
+
+        $(document).ready(function () {
+
+            $('.sub-btn').click(function () {
+                $(this).next('.sub-menu').slideToggle();
+                $(this).find('.dropdown').toggleClass('rotate');
+            });
+
+            $('.nav_menu').click(function () {
+                $('.side-bar').addClass('active');
+
+            });
+            $('.close-btn').click(function () {
+                $('.side-bar').removeClass('active');
+
+            });
+
+        });
+
+    </script>
+
+    <script>
+        // Obtener el elemento del mensaje flash
+        var flashMessage = document.getElementById('flash-message');
+
+        // Ocultar el mensaje flash después de 4 segundos (4000 milisegundos)
+        setTimeout(function () {
+            flashMessage.style.display = 'none';
+        }, 4000);
+    </script>
+</body>
+
+</html>

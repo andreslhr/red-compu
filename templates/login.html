@@ -1,0 +1,79 @@
+{%extends 'base.html'%}
+
+{%block title%}Red Compu - Iniciar Sesión{%endblock%}
+
+{%block content%}
+
+<body>
+    <!--Envio de email-->
+    <div class="reset_password" id="reset_password">
+        <img src="../static/img/xmark.png" id="xmark_reset" alt="xmark">
+        <div class="reset_box">
+            <form action="enlace-send" method="post">
+                <img src="../static/img/email.png" alt="">
+                <h1>Confirma tu direccion de correo electronico para recuperar tu contraseña</h1>
+                <input type="email" name="email" placeholder="Correo Electronico" required>
+                <input type="submit" value="Enviar">
+            </form>
+        </div>
+    </div>
+
+    <div class="container_login">
+        <div class="cont_login">
+            <div class="login">
+                <h1>Iniciar Sesión</h1>
+                <form action="{{ url_for('auth.login') }}" method="post">      
+                    <div class="username">
+                        <label>Nombre de Usuario</label>
+                        <div class="username_input">
+                            <i class="fa-regular fa-user"></i>
+                            <input type="text" name="username" placeholder="Escriba su usario" required>
+                        </div>
+                    </div>                  
+                    <div class="password">
+                        <label>Contraseña</label>
+                        <div class="password_input">
+                            <i class="fa-solid fa-unlock-keyhole"></i>
+                            <input type="password" name="password" placeholder="Escriba su contraseña" required>
+                        </div>
+                    </div>
+                    <a href="#" class="forgout_password" id="forgout_password">¿Olvido su contraseña?</a>
+                    <input type="submit" class="btn_form" value="Inciar Sesión">
+                </form>
+                <div class="register_link">
+                    <h3>¿Aun no te registras?</h3>
+                    <a href="registro" id="register_link">Registrate</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!--JAVA SCRIPT-->
+<script>
+       document.addEventListener('DOMContentLoaded', function () {
+            // Obtener las referencias
+            var forgotPasswordLink = document.getElementById('forgout_password');
+            var passSendContainer = document.getElementById('reset_password');
+            var xmarkIcon = document.getElementById('xmark_reset');
+    
+            // Agregar un evento de clic al enlace
+            forgotPasswordLink.addEventListener('click', function (event) {
+                // Evitar el comportamiento predeterminado del enlace
+                event.preventDefault();
+    
+                setTimeout(function () {
+                    // Mostrar el contenedor "pass-send"
+                    passSendContainer.style.display = 'block';
+                });
+            });
+    
+            // Agregar un evento de clic al ícono "xmark"
+            xmarkIcon.addEventListener('click', function () {
+                // Ocultar el contenedor "pass-send" al hacer clic en el ícono "xmark"
+                passSendContainer.style.display = 'none';
+            });
+        });
+</script>
+</body>
+
+{% endblock %}

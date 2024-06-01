@@ -1,0 +1,124 @@
+.container_chatgpt {
+    padding: 2em 0.5em;
+    width: 100%;
+
+    @media (max-width:1000px) {
+        margin-top: 3em;
+    }
+}
+
+.container_chatgpt>h1 {
+    text-align: center;
+    color: #fff;
+    font-size: 30px;
+    margin-bottom: 1em;
+}
+
+.container_chatgpt .chatgpt_text {
+    margin-bottom: 1.5em;
+    text-align: justify;
+}
+
+.container_chatgpt .chatgpt_text p {
+    color: #fff;
+    font-size: 15px;
+    line-height: 1.7em;
+}
+
+.container_chatgpt .chatgpt_text h1 {
+    color: #fff;
+    font-size: 15px;
+    font-weight: 700;
+    padding: 15px 0;
+    text-align: center;
+}
+
+.container_chatgpt .cont_chatgpt {
+    width: 80%;
+    margin: 0 auto;
+}
+
+.container_chatgpt .chatgpt_text span {
+    font-weight: 600;
+}
+
+.container_chatgpt .chatgpt_img {
+    width: 85%;
+    margin: 0 auto;
+    position: relative;
+    overflow: hidden;
+
+    @media (max-width:1000px) {
+        width: 100%;
+    }
+}
+
+.container_chatgpt .chatgpt_img img {
+    width: 100%;
+    transition: all ease-in-out 5s;
+}
+
+.container_chatgpt .chatgpt_img img:hover {
+    transform: scale(1.5);
+}
+
+.container_chatgpt .chatgpt_img_text {
+    position: absolute;
+    top: 50%;
+    right: 20%;
+    color: #fff;
+    transform: translateY(-50%);
+
+    @media (max-width:1000px) {
+        right: 10%;
+    }
+}
+
+.container_chatgpt .chatgpt_img_text img {
+    width: 25px;
+}
+
+.container_chatgpt .chatgpt_img_text h2 {
+    font-size: 40px;
+    font-weight: 600;
+    text-align: center;
+}
+
+.container_chatgpt .openai {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 5px;
+    margin-bottom: 15px;
+}
+
+.container_chatgpt .chatgpt_img_text a {
+    background-color: #fff;
+    color: #000;
+    text-decoration: none;
+    font-weight: 600;
+    width: 150px;
+    display: block;
+    text-align: center;
+    margin: auto;
+    padding: 8px;
+}
+
+.kitsai .chatgpt_img_text {
+    right: 10%;
+    top: 35%;
+    text-align: center;
+    width: 280px;
+
+    @media (max-width:1000px) {
+        top: 45%;
+        right: 0;
+        width: 100%;
+    }
+}
+
+.kitsai h3{
+    @media (max-width:1000px) {
+        font-size: 13px;
+    }
+}

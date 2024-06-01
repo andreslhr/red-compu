@@ -1,0 +1,220 @@
+.container_login {
+    width: 100%;
+    height: 85vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.cont_login {
+    background-color: rgba(1, 10, 19, 0.233);
+    position: relative;
+    width: 330px;
+    height: 500px;
+    padding: 3em;
+    border-radius: 5px;
+}
+
+.cont_register {
+    height: 650px;
+}
+
+.cont_login h1 {
+    text-align: center;
+    font-size: 25px;
+    font-weight: 800;
+    color: #fff;
+}
+
+.cont_login form {
+    margin: 1em auto;
+}
+
+.cont_login .username,
+.cont_login .password,
+.cont_login .email,
+.cont_login .nombre {
+    width: 100%;
+}
+
+.cont_login .username i,
+.cont_login .password i,
+.cont_login .email i,
+.cont_login .nombre i {
+    margin: 5px;
+    font-size: 12px;
+}
+
+.cont_login input[type=text],
+.cont_login input[type=password],
+.cont_login input[type=email] {
+    width: 100%;
+    padding: 10px;
+    border: none;
+    outline: none;
+    background: transparent;
+}
+
+.cont_login form input::placeholder {
+    font-size: 12px;
+    font-weight: 600;
+    color: #00000051;
+}
+
+.username .username_input,
+.password .password_input,
+.email .email_input,
+.nombre .nombre_input {
+    background-color: #fff;
+    display: flex;
+    align-items: center;
+    border: 1px solid #00000036;
+    margin: 8px 0;
+    border-radius: 5px;
+    padding: 0 8px;
+}
+
+
+.login form label {
+    color: #fff;
+    padding-bottom: 15px;
+    font-size: 13px;
+}
+
+.login .btn_form {
+    width: 100%;
+    padding: 10px;
+    border: none;
+    color: #fff;
+    background-color: rgb(56, 81, 224);
+    margin-top: 15px;
+    cursor: pointer;
+    text-transform: uppercase;
+    font-weight: 600;
+}
+
+.login .forgout_password {
+    font-size: 13px;
+    color: #ffffff94;
+    font-weight: 600;
+    text-decoration: none;
+}
+
+.login .register_link {
+    position: absolute;
+    width: 100%;
+    left: 0;
+    bottom: 1.5em;
+    margin: 0 auto;
+}
+
+.login .register_link h3 {
+    text-align: center;
+    font-size: 13px;
+    color: #ffffff67;
+    font-weight: 600;
+}
+
+.login .register_link #register_link {
+    margin-top: 10px;
+    font-size: 13px;
+    text-transform: uppercase;
+    color: #ffffffb8;
+    font-weight: 700;
+    text-decoration: none;
+    text-align: center;
+    display: block;
+
+}
+
+.container_login .login_text {
+    width: 350px;
+    height: 580px;
+    overflow: hidden;
+}
+
+.container_login .login_text img {
+    width: 100%;
+    height: 100%;
+
+}
+
+/*ENVIO DE RECUPERACION DE CLAVE*/
+.reset_password {
+    width: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100vh;
+    background-color: #011121e6;
+    z-index: 13;
+    display: none;
+}
+
+.reset_password .reset_box {
+    width: 500px;
+    height: auto;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    background-color: #fff;
+    padding: 1.5em;
+
+    @media (max-width:1000px) {
+        width: 90%;
+    }
+}
+
+.reset_password .reset_box form h1 {
+    font-size: 17px;
+    margin-bottom: 15px;
+    font-weight: 400;
+}
+
+.reset_password .reset_box form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.reset_password .reset_box form input[type=email] {
+    display: block;
+    width: 250px;
+    padding: 7px;
+    font-size: 15px;
+    outline: none;
+    border: none;
+    border-bottom: 1px solid #000;
+}
+
+.reset_password .reset_box form input[type=submit] {
+    margin-top: 10px;
+    width: 150px;
+    padding: 10px;
+    background-color: #082d54;
+    border: none;
+    color: #fff;
+    font-weight: 600;
+    font-size: 15px;
+    cursor: pointer;
+    transition: ease all 1s;
+}
+
+.reset_password .reset_box form input[type=submit]:hover {
+    background-color: #01162a;
+}
+
+.reset_password .reset_box img {
+    width: 80px;
+    margin-bottom: 15px;
+}
+
+.reset_password #xmark_reset {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    width: 25px;
+    cursor: pointer;
+}

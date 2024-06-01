@@ -1,0 +1,95 @@
+{%extends 'base.html'%}
+
+{%block title%}Red Compu - Debian{%endblock%}
+
+{%block content%}
+
+<body>
+    <style>
+        .nav_container .nav_cont .sub_menu {
+            background-color: rgb(1, 17, 31);
+        }
+    </style>
+    <section>
+        <div class="container_os_download">
+            <div class="os_img_title">
+                <img src="../../static/img/OS/debian.png" alt="">
+                <div class="os_img_text">
+                    <h1>Descargar Debian para PC</h1>
+                    <p>El sistema operativo más avanzado y robusto para servidores <br> y entornos de desarrollo: Debian
+                        Linux.</p>
+                </div>
+            </div>
+            <div class="cont_os_download">
+                <div class="cont_os_text">
+                    <p>
+                        <span>¡Bienvenido!</span> Estás a punto de descargar uno de los sistemas operativos más
+                        respetados y robustos en el mundo de Linux: Debian. Conocido por su estabilidad, seguridad y
+                        comunidad activa, Debian es una excelente opción tanto para usuarios domésticos como
+                        profesionales, así como para servidores y estaciones de trabajo.
+                    </p>
+                    <h2>Características principales de Debian:</h2>
+                    <p>1) Estabilidad: Debian es famoso por su estabilidad y fiabilidad, ideal para entornos donde la
+                        seguridad y la robustez son esenciales.</p>
+                    <p>2) Seguridad: Con actualizaciones de seguridad regulares y una comunidad activa que supervisa
+                        posibles vulnerabilidades, Debian garantiza un entorno seguro para tus datos y aplicaciones.
+
+                    </p>
+                    <p>3) Amplia compatibilidad: Compatible con una vasta gama de hardware y software, desde equipos de
+                        escritorio hasta servidores empresariales.</p>
+                    <p>4) Personalización: Ofrece una gran flexibilidad y opciones de personalización para adaptarse a
+                        tus necesidades específicas, con múltiples entornos de escritorio como GNOME, KDE, XFCE y más.
+                    </p>
+                    <p>5) Repositorios extensos: Accede a una amplia variedad de software libre y de código abierto a
+                        través de los repositorios de Debian, con más de 50,000 paquetes disponibles.</p>
+                    <h2>Requisitos del sistema:</h2>
+                    <p><span>Procesador: </span> Compatible con arquitectura x86, x86_64, ARM, PowerPC y otras</p>
+                    <p><span>Memoria RAM:</span> 512 MB mínimo, se recomienda 2 GB o más para un rendimiento óptimo</p>
+                    <p><span>Espacio en disco:</span> 10 GB mínimo, se recomienda 20 GB o más</p>
+                    <p><span>Tarjeta gráfica:</span> Compatible con una variedad de tarjetas gráficas, dependiendo del
+                        entorno de escritorio seleccionado</p>
+                    <p><span>Conexión a internet:</span> Requerida para descargar paquetes adicionales y actualizaciones
+                    </p>
+                    <h2>Instrucciones de instalación:</h2>
+                    <p>1) Descarga la imagen ISO de Debian desde el sitio web oficial de Debian.
+
+                    </p>
+                    <p>2) Crea un medio de instalación: Puedes grabar la imagen ISO en un DVD o crear una unidad USB de
+                        arranque utilizando herramientas como <a href="https://rufus.ie/es/" target="_blank">Rufus</a> o
+                        <a href="https://etcher.balena.io/" target="_blank">BalenaEtcher</a>.
+                    </p>
+                    <p>3) Inicia la instalación: <br>
+                        - Inserta el DVD o la unidad USB en tu computadora y reinicia el sistema. <br>
+                        - Configura el BIOS/UEFI de tu computadora para arrancar desde el medio de instalación. <br>
+                        - Selecciona "Instalar Debian" en el menú de arranque.
+                    </p>
+                    <p>4) Sigue las instrucciones en pantalla: <br>
+                        - Selecciona el idioma, la región y la configuración del teclado. <br>
+                        - Configura la red (puede requerir conexión a Internet). <br>
+                        - Configura las particiones del disco. Puedes usar particionamiento guiado para una instalación
+                        - más sencilla o particionamiento manual si necesitas configuraciones específicas. <br>
+                        - Selecciona los paquetes y el entorno de escritorio que deseas instalar. <br>
+                        - Configura la cuenta de usuario y la contraseña.
+                    </p>
+                    <p>5) Completa la instalación: <br>
+                        - Una vez finalizada la instalación, reinicia tu sistema y remueve el medio de instalación. <br>
+                        - Inicia sesión en tu nuevo sistema Debian y realiza cualquier configuración adicional según tus
+                        necesidades.
+                    </p>
+                    <h2>Soporte y actualizaciones</h2>
+                    <p>Debian recibe actualizaciones regulares y soporte continuo de la comunidad y del equipo de
+                        desarrollo de Debian. Puedes encontrar soluciones y asistencia en línea a través de foros,
+                        listas de correo y documentación oficial.
+                    </p>
+                </div>
+                <div class="cont_os_button">
+                    <h2>Descarga Debian ahora:</h2>
+                    <a href="https://www.debian.org/download" target="_blank"><i
+                            class="fa-solid fa-circle-arrow-down"></i>Descargar</a>
+                </div>
+            </div>
+        </div>
+    </section>
+</body>
+
+{%endblock%}
