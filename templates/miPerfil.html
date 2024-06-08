@@ -6,35 +6,113 @@
 <link rel="stylesheet" href="../static/css/myprofile.css">
 
 <body>
-    <div class="container_profile">
+    <!--GIF-->
+    <div class="container_gif" id="container_gif">
+        <div class="gif">
+            <img src="../static/gif/Dual Ring@1x-1.0s-200px-200px.gif" alt="">
+            <p>Eliminando cuenta...</p>
+        </div>
+    </div>
 
+    <!--MODAL-->
+    <div class="modal_profile" id="modal_profile">
+        <div class="modal_cont_profile">
+            <div class="modal_text">
+                <div class="modal_img">
+                    <img src="../static/img/exclamacion.png" alt="">
+                </div>
+                <h1>Confirmar eliminacion de cuenta</h1>
+                <h3>¿Está seguro de eliminar su cuenta?</h3>
+                <div class="modal_btn">
+                    <button type="button" id="xmark_btn">No</button>
+                    <form id="deleteForm" action="{{ url_for('eliminar_cuenta') }}" method="post">
+                        <input type="submit" class="btn btn-danger" value="Sí, eliminar cuenta">
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="container_profile">
         <div class="cont_profile">
             <div class="profile_title">
+                <div class="profile_img">
+                    <p>{{ first_letter }}</p>
+                </div>
                 <h1>Perfil</h1>
-                <p>{{ current_user.perfil_details or 'No disponible'}}</p>
+                <p class="details_title">{{ current_user.perfil_details or 'Sin Datos'}}</p>
             </div>
             <div class="profile_flex">
                 <div class="profile_box">
                     <h1>Acerca de mi</h1>
-                    <p>{{ current_user.acercademi or 'No disponible'}}</p>
+                    <p>{{ current_user.acercademi or 'Sin Datos'}}</p>
+                    <div class="profile_location">
+                        <h1>Ubicación</h1>
+                        <h2>Pais:</h2>
+                        <label for="ubicacion">{{ current_user.pais or 'Sin Datos' }}</label>
+                        <h2>Ubicación:</h2>
+                        <label for="ubicacion">{{ current_user.ubicacion or 'Sin Datos' }}</label>
+                    </div>
                 </div>
                 <div class="profile_box_details">
                     <h1>Detalles</h1>
                     <h2>Nombre:</h2>
-                    <label for="nombre">{{ current_user.nombre or 'No disponible' }}</label>
+                    <label for="nombre">{{ current_user.nombre or 'Sin Datos' }}</label>
                     <h2>Edad:</h2>
-                    <label for="edad">{{ current_user.edad or 'No disponible' }}</label>
+                    <label for="edad">{{ current_user.edad or 'Sin Datos' }}</label>
                     <h2>Correo:</h2>
-                    <label for="ubicacion">{{ current_user.correo or 'No disponible' }}</label>
-                    <h2>Ubicación:</h2>
-                    <label for="ubicacion">{{ current_user.ubicacion or 'No disponible' }}</label>
+                    <label for="pais">{{ current_user.correo or 'Sin Datos' }}</label>
+                    <h2>Telefono:</h2>
+                    <label for="telefono">{{ current_user.telefono or 'Sin Datos' }}</label>
+                    <h2>Fecha de nacimiento:</h2>
+                    <label for="fecha">{{ current_user.fecha or 'Sin Datos' }}</label>
                 </div>
+            </div>
+            <div class="profile_button">
+                <a href="#" id="modal_target">Eliminar
+                    cuenta</a>
             </div>
 
         </div>
     </div>
 
+    <!--JAVA SCRIPT-->
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            // Obtener las referencias
+            var forgotPasswordLink = document.getElementById('modal_target');
+            var passSendContainer = document.getElementById('modal_profile');
+            var xmarkIcon = document.getElementById('xmark_btn');
 
+            // Agregar un evento de clic al enlace
+            forgotPasswordLink.addEventListener('click', function (event) {
+                // Evitar el comportamiento predeterminado del enlace
+                event.preventDefault();
+
+                setTimeout(function () {
+                    // Mostrar el contenedor "pass-send"
+                    passSendContainer.style.display = 'block';
+                });
+            });
+
+            // Agregar un evento de clic al ícono "xmark"
+            xmarkIcon.addEventListener('click', function () {
+                // Ocultar el contenedor "pass-send" al hacer clic en el ícono "xmark"
+                passSendContainer.style.display = 'none';
+            });
+        });
+    </script>
+
+    <script>
+        document.getElementById('deleteForm').addEventListener('submit', function (event) {
+            event.preventDefault();
+            document.getElementById('container_gif').style.display = 'flex';
+            setTimeout(() => {
+                event.target.submit();
+            }, 2000);
+        });
+    </script>
 </body>
 
 {%endblock%}

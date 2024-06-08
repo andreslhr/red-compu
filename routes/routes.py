@@ -2,7 +2,7 @@ from flask import render_template, Blueprint
 from flask_login import login_required, current_user
 
 routes_bp = Blueprint('routes', __name__)
-#RUTAS  
+#RUTAS
 
 
 @routes_bp.route('/')
@@ -21,7 +21,7 @@ def descargas_programas():
 @routes_bp.route('/descargas_sistemas_operativos')
 def descargas_sistemas_operativos():
      return render_template('descargas_sistemas_operativos.html')
-  
+
 @routes_bp.route('/desarrollo_web')
 @login_required
 def desarrollo_web():
@@ -30,7 +30,7 @@ def desarrollo_web():
 
 @routes_bp.route('/diseño_grafico')
 @login_required
-def diseño_grafico():
+def diseno_grafico():
      return render_template('servicies/diseño_grafico.html')
 
 
@@ -82,8 +82,13 @@ def recuperacion_de_clave_email():
 @routes_bp.route('/miPerfil')
 @login_required
 def miPerfil():
-     return render_template('miPerfil.html', current_user=current_user)
+    first_letter = current_user.nombre[0] if current_user.nombre else ''
+    return render_template('miPerfil.html', current_user=current_user, first_letter=first_letter)
 
+
+@routes_bp.route('/cookies')
+def cookies():
+     return render_template('cookies.html')
 
 
 

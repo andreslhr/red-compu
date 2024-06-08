@@ -18,6 +18,76 @@ body {
     background-size: cover;
 }
 
+/*COOKIES*/
+.container_cookies {
+    width: 100%;
+    margin: auto;
+}
+
+#cookies {
+    position: fixed;
+    width: 100%;
+    bottom: 0;
+    color: rgb(255, 255, 255);
+    background-color: rgb(3, 45, 72);
+    z-index: 20;
+    display: none;
+}
+
+.subcontainer_cookies {
+    width: 85%;
+    margin: auto;
+}
+
+.cookies {
+    min-height: 70px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 5px;
+    font-size: 15px;
+}
+
+.cookies a {
+    font-weight: 600;
+    color: rgb(242, 196, 127);
+}
+
+.cookies .cookies_btn {
+    display: flex;
+    gap: 10px;
+}
+
+#btn_cookies {
+    border-radius: 5px;
+    padding: 8px 12px;
+    font-size: 1em;
+    cursor: pointer;
+    background-color: #06850d;
+    color: #fff;
+    border: none;
+
+}
+
+#btn_cookies_delete {
+    border-radius: 5px;
+    padding: 8px 12px;
+    font-size: 1em;
+    cursor: pointer;
+    background-color: #901103;
+    color: #fff;
+    border: none;
+
+}
+
+@media (max-width:1000px) {
+    .cookies {
+        padding: 10px 0;
+    }
+}
+
+
 /*MENSAJES FLASH*/
 .flash {
     position: absolute;
@@ -50,7 +120,7 @@ body {
 .side-bar {
     background-color: #02182f;
     width: 290px;
-    height: 100vh;
+    height: 100%;
     position: fixed;
     top: 0;
 
@@ -142,6 +212,7 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
+
     gap: 1em;
     list-style: none;
 
@@ -150,6 +221,7 @@ body {
 .nav_login_dropdown .logout-form {
     display: flex;
     align-items: center;
+    flex-direction: column;
     gap: 15px;
 }
 
@@ -238,13 +310,14 @@ body {
 }
 
 .nav_container .nav_login .logout-form {
-    width: 150px;
+    width: 180px;
 
     @media (max-width:1000px) {
         display: none;
     }
 }
-.nav_container .nav_login .logout-form .sub_menu_login{
+
+.nav_container .nav_login .logout-form .sub_menu_login {
     width: 100%;
 }
 
@@ -256,7 +329,7 @@ body {
     background: transparent;
 }
 
-.nav_login  li.logout-form.logout-form-reponsive {
+.nav_login li.logout-form .logout-form-reponsive {
     gap: 15px;
     display: flex;
     align-items: center;
@@ -673,6 +746,7 @@ body {
     height: auto;
     padding: 3em 0;
     background-color: rgba(1, 10, 19, 0.233);
+    position: relative;
 }
 
 .cont_footer {
@@ -780,6 +854,31 @@ body {
     font-size: 12px;
     color: #fff;
     font-weight: 200;
+}
+
+.copyright_cookies {
+
+    position: absolute;
+    bottom: 5px;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    left: 0;
+    padding: 5px 15px;
+}
+
+.copyright_cookies label {
+    font-size: 13px;
+    font-weight: 400;
+    color: #fff;
+}
+
+.copyright_cookies a {
+    color: #fff;
+    font-size: 13px;
+    font-weight: 400;
+    text-decoration: none;
+    margin: 5px;
 }
 
 /*DESCARGA DE SISTEMAS OPERATIVOS*/
@@ -1429,4 +1528,70 @@ body {
     font-size: 15px;
     line-height: 1.7em;
     text-align: center;
+}
+
+/*COOKIES*/
+
+.cont_privacidad {
+    width: 70%;
+    margin: 3em auto;
+}
+
+.cont_privacidad h1 {
+    color: #fff;
+    font-size: 25px;
+    text-align: center;
+    font-weight: 600;
+    margin-bottom: 1em;
+    text-transform: uppercase;
+}
+
+.cont_privacidad h2 {
+    color: #fff;
+    font-size: 18px;
+    font-weight: 600;
+    text-align: center;
+    padding: 10px 0;
+}
+
+.cont_privacidad p,
+.cont_privacidad label {
+    color: #fff;
+    font-size: 15px;
+    font-weight: 400;
+    line-height: 1.5em;
+}
+
+.cont_privacidad span {
+    font-weight: 600;
+}
+
+.cont_privacidad a {
+    font-weight: 300;
+    color: #fff262;
+}
+
+@media (max-width:1024px) {
+    .container_privacidad {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .cont_privacidad {
+        height: 65vh;
+    }
+    .privacidad_info{
+        display: grid;
+        justify-content: center;
+    }
+}
+
+@media (max-width:1000px) {
+    .cont_privacidad {
+        height: auto;
+        padding-top: 3em;
+        width: 90%;
+    }
+
 }

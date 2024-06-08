@@ -1,0 +1,76 @@
+{%extends 'base.html'%}
+
+{%block title%}Red Compu - Actualización de Contraseña{%endblock%}
+
+{%block content%}
+<link rel="stylesheet" href="../static/css/myprofile.css">
+
+<style>
+    .nav_container .nav_cont .sub_menu {
+        background-color: #02182f;
+    }
+</style>
+
+
+<body>
+
+    <div class="container_update_password">
+        <div class="cont_update_password">
+            <div class="update_password_form">
+                <h1>Actualiza tu contraseña</h1>
+                <form action="{{ url_for('actualizar_contrasena') }}" method="post">
+
+                    <label>Contraseña actual:</label>
+                    <input type="password" name="password" id="password" placeholder="Contraseña actual">
+
+                    <label>Nueva contraseña:</label>
+                    <input type="password" name="newpassword" id="newpassword" placeholder="Contraseña actual">
+
+                    <label>Confirmar nueva contraseña:</label>
+                    <input type="password" name="repPassword" id="reppassword" placeholder="Contraseña actual">
+
+                    <div class="btn_form_password">
+                        <a id="btn_delete_password">Borrar</a>
+                        <input type="submit" value="Actualizar">
+                    </div>
+
+                </form>
+                <div class="update_password_logo">
+                    <h3>RedCompu</h3>
+                </div>
+            </div>
+            <div class="update_password_img">
+                <img src="../static/img/password_background.jpg" alt="">
+                <p>Actualiza tu contraseña para mejorar la seguridad de tu cuenta.</p>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        document.getElementById('btn_delete_password').addEventListener('click', function () {
+            // Obtener todos los campos de entrada (input), select y textarea
+            var inputs = document.querySelectorAll('input');
+            var textareas = document.querySelectorAll('textarea');
+
+            // Limpiar los campos de entrada (input)
+            inputs.forEach(function (input) {
+                if (input.type !== 'submit') {
+                    if (input.type === 'checkbox' || input.type === 'radio') {
+                        input.checked = false;
+                    } else {
+                        input.value = '';
+                    }
+                }
+            });
+
+            // Limpiar los campos textarea
+            textareas.forEach(function (textarea) {
+                textarea.value = '';
+            });
+        });
+    </script>
+
+
+</body>
+
+{% endblock %}

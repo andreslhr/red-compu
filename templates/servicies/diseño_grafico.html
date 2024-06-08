@@ -19,7 +19,7 @@
                     <h2>Diseño Grafico</h2>
                     <h1>Llena el siguiente formulario y pronto estaremos en contacto con usted.</h1>
                 </div>
-                <form action="{{ url_for('enviar_correo_diseño') }}" method="post">
+                <form action="{{ url_for('enviar_correo_grafico') }}" method="post">
                     <input type="email" name="correoUsuario" value="{{ current_user.correo or 'No disponible' }}"
                         readonly hidden>
                     <div class="form_input">
@@ -42,7 +42,7 @@
                     </div>
                     <div class="form_input">
                         <label>Correo Electronico:</label>
-                        <input type="text" name="correo" placeholder="Escribe tu correo" required>
+                        <input type="text" name="correo" placeholder="Escribe tu correo" value="{{ current_user.correo or 'No disponible' }}" required>
                     </div>
                     <div class="form_input">
                         <label>Tu Direccion:</label>

@@ -9,58 +9,134 @@
     .nav_container .nav_cont .sub_menu {
         background-color: #02182f;
     }
+
+    .error {
+        color: red;
+        font-size: 13px;
+    }
 </style>
 
 <body>
+
+
     <section>
         <div class="container_update">
             <div class="cont_update">
-                <h1>Actualización de Datos</h1>
-                <div class="update_flex">
+                <div class="update_first">
+                    <img src="../static/img/update_background.jpg" alt="">
+                    <p>Mantener tu información actualizada nos permite comunicarnos contigo de manera efectiva.</p>
+                </div>
+                <div class="update_second">
+                    <h1>Actualiza tus Datos:</h1>
+                    <form action="{{ url_for('actualizar_datos') }}" method="post">
 
-                    <div class="update_box">
-                        <h2>Agregar Datos o Actualizar datos:</h2>
-                        <form action="{{ url_for('actualizar_datos') }}" method="post">
-                            <label for="correo">Correo:</label>
-                            <input type="email" name="correo" placeholder="Correo electronico">
+                        <label for="correo">Correo Electronico:</label>
+                        <input type="email" name="correo" placeholder="Correo Electronico">
 
-                            <label for="edad">Edad:</label>
-                            <input type="number" name="edad" placeholder="Edad">
+                        <label for="telefono">Numero de Telefono:</label>
+                        <input type="number" name="telefono" id="phone" placeholder="Numero de Telefono">
 
-                            <label for="edad">Acerca de mi:</label>
-                            <textarea name="acercademi" placeholder="Acerca de mi"></textarea>
+                        <label for="direccion">Dirección <span>(Ciudad, estado, urbanización)</span> :</label>
+                        <input type="text" name="direccion" placeholder="Dirección">
 
-                            <label for="edad">Perfil:</label>
-                            <textarea name="perfil" placeholder="Mi Perfil"></textarea>
+                        <label for="pais">País:</label>
+                        <select name="pais" id="pais" name="pais">
+                            <option disabled>Seleccione el pais</option>
+                        </select>
 
+                        <label for="acercademi">Acerca de mí:</label>
+                        <textarea id="acercademi" name="acercademi" placeholder="Acerca de mi" rows="10"
+                            cols="50"></textarea>
+                        <p id="wordCount" class="error"></p>
 
-                            <label for="ubicacion">Ubicación:</label>
-                            <textarea name="ubicacion" placeholder="Tu Ubicación"></textarea>
+                        <label for="miperfil">Mi Perfil:</label>
+                        <input type="text" name="miperfil" placeholder="Perfil">
 
-                            <input type="submit" id="btn_profile" value="Guardar">
-                        </form>
-                    </div>
+                        <label for="fecha">Fecha de nacimiento:</label>
+                        <input type="date" name="fecha" id="fecha">
 
-                    <div class="update_password">
-                        <h2>Actualizacion de Contraseña:</h2>
-                        <form action="{{ url_for('actualizar_clave') }}" method="post">
-                            <label for="contraseña">Contraseña Actual</label>
-                            <input type="password" name="password" placeholder="Contraseña actual">
-
-                            <label for="nueva contraseña">Nueva Contraseña:</label>
-                            <input type="password" name="newPassword" placeholder="Nueva contraseña">
-
-                            <label for="repetir contraseña">Repetir Contraseña:</label>
-                            <input type="password" name="repPassword" placeholder="Repetir contraseña">
-
-                            <input type="submit" id="btn_password" value="Guardar">
-
-                        </form>
-                    </div>
+                        <div class="btn_form">
+                            <a id="btn_delete">Borrar</a>
+                            <input type="submit" id="btn_update" value="Actualizar">
+                        </div>
+                    </form>
                 </div>
             </div>
         </div>
     </section>
+
+    <!--JAVA SCRIPT-->
+    <script>
+        const paises = [
+            "Argentina", "Bolivia", "Brasil", "Chile", "Colombia",
+            "Costa Rica", "Cuba", "Ecuador", "El Salvador", "España",
+            "Guatemala", "Honduras", "México", "Nicaragua", "Panamá",
+            "Paraguay", "Perú", "Puerto Rico", "República Dominicana",
+            "Uruguay", "Venezuela"
+        ];
+
+        function poblarSelectConPaises() {
+            const selectPais = document.getElementById('pais');
+
+            paises.forEach(pais => {
+                const option = document.createElement('option');
+                option.value = pais;
+                option.textContent = pais;
+                selectPais.appendChild(option);
+            });
+        }
+
+        // Llamar a la función para poblar el <select> al cargar la página
+        window.onload = poblarSelectConPaises;
+    </script>
+
+    <script>
+        document.getElementById('acercademi').addEventListener('input', function () {
+            var text = this.value;
+            var charCount = text.length;
+
+            if (charCount > 130) {
+                this.value = text.substring(0, 130);
+                document.getElementById('charCount').textContent = 'Máximo 130 caracteres permitidos.';
+            } else {
+                document.getElementById('charCount').textContent = '';
+            }
+        });
+
+        document.getElementById('acercademi').addEventListener('keydown', function (e) {
+            var text = this.value;
+            var charCount = text.length;
+
+            if (charCount >= 130 && e.key !== 'Backspace' && e.key !== 'Delete' && !e.ctrlKey && !e.metaKey) {
+                e.preventDefault();
+            }
+        });
+    </script>
+
+    <script>
+        document.getElementById('btn_delete').addEventListener('click', function () {
+            // Obtener todos los campos de entrada (input), select y textarea
+            var inputs = document.querySelectorAll('input');
+            var textareas = document.querySelectorAll('textarea');
+
+            // Limpiar los campos de entrada (input)
+            inputs.forEach(function (input) {
+                if (input.type !== 'submit') {
+                    if (input.type === 'checkbox' || input.type === 'radio') {
+                        input.checked = false;
+                    } else {
+                        input.value = '';
+                    }
+                }
+            });
+
+            // Limpiar los campos textarea
+            textareas.forEach(function (textarea) {
+                textarea.value = '';
+            });
+        });
+    </script>
+
 </body>
 
 {% endblock %}

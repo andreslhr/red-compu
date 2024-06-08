@@ -22,6 +22,23 @@
 </head>
 
 <body id="body">
+    <!--COOKIES-->
+    <div id="cookies">
+        <div class="container_cookies">
+            <div class="subcontainer_cookies">
+                <div class="cookies">
+                    <p>
+                        Este sitio web usa cookies para garantizar que te ofrecemos la mejor experiencia de usuario
+                        posible. <a href="cookies" target="_blank">Mas información.</a></p>
+                    <div class="cookies_btn">
+                        <button id="btn_cookies">Esta bién!</button>
+                        <button id="btn_cookies_delete">Rechazar</button>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
 
     <!--MENSAJES FLASH-->
     {% with messages = get_flashed_messages(with_categories=true) %}
@@ -58,7 +75,10 @@
                 {% if current_user.is_authenticated %}
                 <li class="logout-form logout-form-reponsive">
                     <a class="btn_perfil" id="btnPerfil" href="miPerfil">Mi Perfil<i class="fa-regular fa-user"></i></a>
-                    <a class="btn_perfil" id="btnPerfil" href="actualizar_datos">Actualizar datos<i class="fa-solid fa-pen-to-square"></i></a>
+                    <a class="btn_perfil" id="btnPerfil" href="actualizar_datos">Actualizar datos<i
+                            class="fa-solid fa-pen-to-square"></i></a>
+                    <a class="btn_perfil" id="btnPerfil" href="actualizar_contraseña">Actualizar contraseña<i
+                            class="fa-solid fa-key"></i></a>
                     <form id="logout-form-btn-drop" action="{{ url_for('logout') }}" method="GET">
                         <input type="submit" class="btn_logout" value="Cerrar Sesión">
                     </form>
@@ -103,7 +123,10 @@
                         <ul class="sub_menu sub_menu_login">
                             <a class="btn_perfil" id="btnPerfil" href="miPerfil">Mi Perfil<i
                                     class="fa-regular fa-user"></i></a>
-                            <a class="btn_perfil" id="btnPerfil" href="actualizar_datos">Actualizar datos<i class="fa-solid fa-pen-to-square"></i></a>
+                            <a class="btn_perfil" id="btnPerfil" href="actualizar_datos">Actualizar datos<i
+                                    class="fa-solid fa-pen-to-square"></i></a>
+                            <a class="btn_perfil" id="btnPerfil" href="actualizar_contraseña">Actualizar contraseña<i
+                                    class="fa-solid fa-key"></i></a>
                             <form id="logout-form-btn-drop" action="{{ url_for('logout') }}" method="GET">
                                 <input type="submit" class="btn_logout" value="Cerrar Sesión">
                             </form>
@@ -163,12 +186,21 @@
                         </div>
                 </div>
             </div>
+            <div class="copyright_cookies">
+                <label>Copyright © 2024 RedCompu ® </label>
+                <div class="politics_cookies">
+                    <a href="cookies">Cookies</a>
+                    <a href="/">Inicio</a>
+                </div>
+            </div>
         </div>
+
     </div>
     {%endblock%}
 
 
     <!--JAVASCRIPT-->
+    <script src="../static/js/cookies.js"></script>
     <script>
 
         $(document).ready(function () {

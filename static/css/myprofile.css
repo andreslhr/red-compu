@@ -1,7 +1,18 @@
 .container_profile {
     width: 100%;
     height: auto;
-    height: 60vh;
+
+    @media (max-width:1000px) {
+        padding-top: 5em;
+    }
+}
+
+.container_profile .cont_profile {
+    padding: 3em .5em;
+    position: relative;
+    top: 50%;
+    transform: translateX(-50%);
+    left: 50%;
 }
 
 .profile_title {
@@ -10,12 +21,35 @@
     margin-bottom: 4em;
 }
 
+.profile_img {
+    position: relative;
+    margin: 0 auto;
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    background-color: #0aa19a;
+    margin-bottom: 15px;
+    font-size: 35px;
+
+}
+
+.profile_img p {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 45px;
+    font-weight: 700;
+    color: #fff
+}
+
+
 .profile_title h1 {
     font-size: 35px;
 
 }
 
-.profile_title p {
+.profile_title .details_title {
     font-size: 15px;
 }
 
@@ -33,22 +67,49 @@
     justify-content: center;
     flex-wrap: wrap;
     gap: 3em;
+}
 
-    @media (max-width:1000px) {
-        align-items: center;
-    }
+.profile_location {
+    margin-top: 15px;
+    width: 100%;
+}
+
+.profile_location h1 {
+    font-size: 15px;
+    font-weight: 700;
+    margin-bottom: 10px;
+    text-align: start;
+    text-transform: uppercase;
+}
+
+.profile_location h2 {
+    text-align: start;
+    font-size: 15px;
+    color: #fff;
+    padding: 5px 0;
+}
+
+.cont_profile .profile_location label {
+    color: #fff;
+    font-size: 15px;
+    text-align: start;
 }
 
 .profile_box {
     width: 350px;
     color: #fff;
-    max-width: 100%;
+    height: auto;
+
+    @media (max-width:1000px) {
+        width: 90%;
+    }
 }
 
-.profile_box h1 {
+.profile_box>h1 {
     font-size: 15px;
-    font-weight: 600;
+    font-weight: 700;
     margin-bottom: 10px;
+    text-transform: uppercase;
 }
 
 .profile_box p {
@@ -69,11 +130,18 @@
 
 }
 
+.profile_box_details {
+    @media (max-width:1000px) {
+        width: 90%;
+    }
+}
+
 .profile_box_details h1 {
     font-size: 15px;
     color: #fff;
-    font-weight: 600;
+    font-weight: 700;
     margin-bottom: 10px;
+    text-transform: uppercase;
 }
 
 .profile_box_details h2 {
@@ -87,97 +155,485 @@
     font-size: 15px;
 }
 
-/*Actualización de datos*/
-.container_update {
+.profile_button {
+    padding-top: 3em;
     width: 100%;
-    height: auto;
-    padding: 3em .5em;
-
-    @media (max-width:1000px) {
-        padding-top: 5em;
-    }
-}
-
-.container_update h1 {
-    font-size: 25px;
-    color: #fff;
-    text-align: center;
-}
-
-.cont_update {
-    margin: 0 auto;
-    width: 90%;
-}
-
-.update_box {
-    margin-bottom: 2em;
-}
-
-.update_box form,
-.update_password form {
-    width: 250px;
-
-    @media (max-width:1000px) {
-        width: 100%;
-    }
-}
-
-.update_box form input,
-.update_password input {
-    width: 100%;
-    margin: 5px auto;
-    padding: 8px;
-    outline: none;
-}
-
-.update_box form textarea {
-    padding: 8px;
-    min-width: 250px;
-    min-height: 45px;
-    max-height: 70px;
-    max-width: 250px;
-    margin: 5px auto;
-    outline: none;
-
-    @media (max-width:1000px) {
-        width: 100%;
-        min-width: 100%;
-        max-width: 100%;
-    }
-}
-
-.update_flex {
-    padding: 3em 0;
     display: flex;
-    align-items: start;
-    gap: 4em;
+    align-items: center;
     justify-content: center;
 }
 
-.update_flex h2 {
-    padding: 15px 0;
+.profile_button a {
+    font-size: 15px;
+    text-decoration: none;
+    border: none;
+    background-color: rgb(67, 89, 218);
+    color: #fff;
+    padding: 8px 10px;
+    transition: ease-in-out 100ms all;
+    cursor: pointer;
+}
+
+.profile_button a:hover {
+    background-color: rgb(47, 70, 198);
+}
+
+
+/*MODAL PROFILE*/
+
+.modal_profile {
+    width: 100%;
+    display: none;
+    position: fixed;
+    top: 0;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.723);
+    z-index: 12;
+}
+
+.modal_profile .modal_cont_profile {
+    background-color: #ffffff;
+    padding: 2em;
+    width: 550px;
+    height: auto;
+    position: relative;
+    top: 50%;
+    margin: 0 auto;
+    transform: translateY(-50%);
+    max-width: 100%;
+}
+
+.modal_profile .modal_cont_profile .modal_text {
+    color: #000000;
+    text-align: center;
+}
+
+.modal_profile .modal_img {
+    width: 100px;
+    margin-bottom: 15px;
+    margin: 0 auto;
+}
+
+.modal_profile .modal_img img {
+    width: 100%;
+}
+
+.modal_profile .modal_cont_profile .modal_text h1 {
+    font-size: 25px;
+}
+
+.modal_profile .modal_cont_profile .modal_text h3 {
+    font-size: 15px;
+    font-weight: 600;
+    padding: 10px 0;
+}
+
+.modal_profile .modal_cont_profile .modal_btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 15px;
+
+}
+
+.modal_profile .modal_cont_profile .modal_btn button,
+.modal_profile .modal_cont_profile .modal_btn input {
+    font-size: 13px;
+    border: none;
+    color: #fff;
+    padding: 8px 10px;
+    transition: ease-in-out 100ms all;
+    cursor: pointer;
+}
+
+.modal_profile .modal_cont_profile .modal_btn button {
+    background-color: green;
+}
+
+.modal_profile .modal_cont_profile .modal_btn input {
+    background-color: red;
+}
+
+/*GIF*/
+.container_gif {
+    display: none;
+    width: 100%;
+    position: fixed;
+    top: 0;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.908);
+    z-index: 14;
+}
+
+.container_gif .gif {
+    position: relative;
+    top: 50%;
+    transform: translateY(-50%);
+    margin: 0 auto;
+    width: 250px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+}
+
+.container_gif .gif img {
+    width: 80px;
+}
+
+/*ACTUALIZACIO DE DATOS*/
+.container_update {
+    width: 100%;
+    height: auto;
+}
+
+.container_update .cont_update {
+    position: relative;
+    width: 70%;
+    margin: 3em auto;
+    display: flex;
+    height: 90vh;
+    background-color: #011526;
+
+    @media (max-width:1000px) {
+        flex-direction: column;
+        height: auto;
+        width: 100%;
+    }
+
+}
+
+.container_update .cont_update .update_first {
+    width: 60%;
+    height: 100%;
+    position: relative;
+    overflow: hidden;
+
+    @media (max-width:1000px) {
+        width: 100%;
+    }
+}
+
+.container_update .cont_update .update_first p {
+    position: absolute;
+    bottom: 45px;
+    left: 45px;
+    color: #fff;
+    font-size: 22px;
+    font-weight: 700;
+    text-transform: uppercase;
+    width: 80%;
+}
+
+.container_update .cont_update .update_second {
+    width: 50%;
+    position: relative;
+    height: 100%;
+    padding: 20px;
+
+    @media (max-width:1000px) {
+        width: 100%;
+        padding: 10px;
+    }
+}
+
+.container_update .cont_update .update_first img {
+    width: 120%;
+    height: 100%;
+
+    @media (max-width:1000px) {
+        width: 100%;
+    }
+}
+
+.container_update .cont_update .update_second h1 {
+    text-align: center;
+    color: #fff;
+    font-size: 18px;
+    text-transform: uppercase;
+    font-weight: 700;
+    padding: 25px 0;
+}
+
+.container_update .cont_update .update_second form {
+    width: 70%;
+    margin: 0 auto;
+}
+
+.container_update .cont_update .update_second form #pais,
+.container_update .cont_update .update_second form #fecha {
+    width: 100%;
+    margin: 15px 0;
+    padding: 8px;
+}
+
+.container_update .cont_update .update_second form textarea {
+    width: 100%;
+    max-width: 100%;
+    height: 45px;
+    min-height: 45px;
+    max-height: 65px;
+    margin: 15px 0;
+    padding: 8px;
+    outline: none;
+}
+
+.container_update .cont_update .update_second form label {
+    margin: 15px 0;
+    font-size: 15px;
+    color: #fff;
+}
+
+.container_update .cont_update .update_second form input::placeholder {
+    color: #ffffff35;
+}
+
+.container_update .cont_update .update_second form input[type=text],
+[type=email],
+[type=number] {
+    width: 100%;
+    margin: 15px 0;
+    outline: none;
+    border: none;
+    border-bottom: 1px solid #ffffff83;
+    background: transparent;
+    color: #fff;
+    font-size: 13px;
+    padding: 8px;
+}
+
+.container_update .cont_update .update_second form input[type=number]::-webkit-inner-spin-button {
+    display: none;
+}
+
+.container_update .cont_update .update_second form label span {
+    font-size: 13px;
+    font-weight: 200;
+}
+
+.container_update .cont_update .update_second form .btn_form {
+    position: absolute;
+    bottom: 20px;
+    right: 20px;
+    display: flex;
+    gap: 10px;
+
+    @media (max-width:1000px) {
+        padding: 15px;
+        position: static;
+        justify-content: center;
+    }
+}
+
+.container_update .cont_update .update_second form .btn_form #btn_update,
+.container_update .cont_update .update_second form .btn_form a {
+    background-color: #062743;
+    color: #fff;
+    padding: 10px;
+    font-size: 15px;
+    font-weight: 700;
+    border: none;
+    cursor: pointer;
+    transition: all ease-in-out 100ms;
+}
+
+.container_update .cont_update .update_second form .btn_form #btn_update:hover {
+    background-color: #073b68;
+}
+
+.container_update .cont_update .update_second form .btn_form a {
+    background-color: #17222d;
+}
+
+.container_update .cont_update .update_second form .btn_form a:hover {
+    background-color: #293e54;
+}
+
+/*ACTUALIZAR CONTRASEÑA*/
+.container_update_password {
+    width: 100%;
+    height: auto;
+}
+
+.cont_update_password {
+    position: relative;
+    width: 70%;
+    margin: 3em auto;
+    display: flex;
+    height: auto;
+    background-color: #011526;
+
+    @media (max-width:1000px) {
+        padding-top: 4em;
+        flex-direction: column;
+        width: 100%;
+    }
+}
+
+.update_password_form {
+    width: 50%;
+    position: relative;
+    padding: 2em;
+
+    @media (max-width:1000px) {
+        width: 100%;
+    }
+}
+
+.update_password_img {
+    width: 50%;
+    position: relative;
+
+
+    @media (max-width:1000px) {
+        width: 100%;
+    }
+}
+
+.update_password_img img {
+    width: 100%;
+}
+
+.update_password_logo {
+    position: absolute;
+    bottom: 25px;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.update_password_logo h3 {
+    text-align: center;
+    font-size: 35px;
+    font-weight: 800;
+    color: #fff;
+}
+
+
+.update_password_img p {
+    font-size: 22px;
+    color: #fff;
+    position: absolute;
+    top: 30%;
+    left: 25px;
+    font-weight: 700;
+    text-transform: uppercase;
+    width: 80%;
+}
+
+.update_password_form h1 {
+    text-align: center;
+    color: #fff;
+    font-size: 20px;
+    text-transform: uppercase;
+    font-weight: 700;
+    padding: 25px 0;
+}
+
+.update_password_form form {
+    width: 70%;
+    margin: 0 auto;
+    padding-top: 2em;
+
+    @media (max-width:1024px) {
+        width: 100%;
+    }
+}
+
+.update_password_form form input[type=password] {
+    width: 100%;
+    margin: 15px 0;
+    padding: 8px;
+    outline: none;
+    background: transparent;
+    border: none;
+    border-bottom: 1px solid #ffffff6b;
+    color: #fff;
+}
+
+.update_password_form form label {
     color: #fff;
     font-size: 15px;
 }
 
-.update_flex label {
+.update_password_form form .btn_form_password {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-top: 1em;
+}
+
+.update_password_form form .btn_form_password input,
+.update_password_form form .btn_form_password a {
+    background-color: #062743;
     color: #fff;
+    padding: 10px 15px;
     font-size: 13px;
-    font-weight: 400;
-}
-
-.update_box form input[type=number]::-webkit-inner-spin-button {
-    display: none;
-}
-
-.update_flex form #btn_profile,
-.update_flex form #btn_password {
-    background-color: #082d54;
-    color: #fff;
+    font-weight: 600;
     border: none;
     cursor: pointer;
-    font-weight: 600;
-    height: 40px;
-    font-size: 13px;
-    margin-top: 15px;
+    transition: all ease-in-out 100ms;
+}
+
+.update_password_form form .btn_form_password a {
+    background-color: #17222d;
+}
+
+
+@media (max-width:1024px) {
+
+
+    .cont_update_password {
+        flex-direction: column;
+        width: 100%;
+        margin: 0 0;
+    }
+
+    .update_password_logo {
+        padding-top: 2em;
+        position: inherit;
+        bottom: 0;
+    }
+
+    .update_password_img {
+        width: 100%;
+    }
+
+    .update_password_form {
+        width: 50%;
+        margin: 0 auto;
+
+    }
+
+    .update_password_img p {
+        font-size: 45px;
+    }
+
+    .container_update .cont_update {
+        width: 95%;
+        height: 75vh;
+    }
+
+}
+
+
+@media (max-width:1000px) {
+
+
+    .update_password_form {
+        width: 100%;
+        margin: 0 auto;
+
+    }
+
+    .update_password_img p {
+        font-size: 30px;
+    }
+
+    .container_update .cont_update {
+        width: 100%;
+        height: auto;
+    }
+
 }
